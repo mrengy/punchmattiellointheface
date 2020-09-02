@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<head>
+	<meta charset="utf-8">
+	<meta content="ie=edge" http-equiv="x-ua-compatible">
+	<title>Pauric Replicator</title>
+	<meta content="" name="description">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="apple-touch-icon.png" rel="apple-touch-icon">
+	<!-- Place favicon.ico in the root directory -->
+	<link href="css/normalize.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<script src="js/vendor/modernizr-2.8.3.min.js">
+	</script>
+</head>
+<body>
+	<script src=
+	"https://www.google.com/jsapi?key=ABQIAAAAd41BZMx9GSHVAUhhAfvbrxSF3l4aRl210CyYc2-orl6Eo074VRS9NpyMBNThgg0_xIClUexhpFQ3Rw"
+	type="text/javascript">
+	</script> 
+	<script src=
+	"https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js">
+	</script> 
+	<script type="text/javascript">
+	   // <![CDATA[
+		jQuery(document).ready(function($) {
+			setGender = function() {
+				var gender = 'boy';
+				var random = Math.random();
+				if (random < .5) {
+					gender = 'girl'
+				} else {
+					gender = 'boy'
+				}; if (gender == 'boy') {
+					$('.bow').attr('src',
+						'http://www.pauric.net/followthemoney/wp-content/uploads/2011/03/boy-bow.png'
+					);
+				};
+				if (gender == 'girl') {
+					$('.bow').attr('src',
+						'http://www.pauric.net/followthemoney/wp-content/uploads/2011/03/girl-bow.png'
+					);
+				};
+			};
+			setGender();
+			$('#replicate').click(function() {
+				var top = Math.floor(Math.random() * $("#context").height());
+				var left = Math.floor(Math.random() * $("#context").width());
+				var signSwitch = true;
+				var signRandomizer = Math.random();
+				if (signRandomizer > .5) {
+					signSwitch = false;
+				}
+				var rotation = Math.floor(Math.random() * 30);
+				$('#original-baby').css('top', top);
+				$('#original-baby').css('left', left);
+				if (signSwitch == true) {
+					$('#original-baby').css('-moz-transform', 'rotate(-' + rotation + 'deg)');
+					$('#original-baby').css('-webkit-transform', 'rotate(-' + rotation +
+						'deg)');
+				} else {
+					$('#original-baby').css('-moz-transform', 'rotate(' + rotation + 'deg)');
+					$('#original-baby').css('-webkit-transform', 'rotate(' + rotation +
+						'deg)');
+				}
+				$('#context').append($('#original-baby').clone().removeAttr('id'));
+			});
+			$('#change-gender').click(function() {
+				if ($('#original-baby img.bow').attr('src') ==
+					'http://www.pauric.net/followthemoney/wp-content/uploads/2011/03/girl-bow.png'
+				) {
+					$('.bow').attr('src',
+						'http://www.pauric.net/followthemoney/wp-content/uploads/2011/03/boy-bow.png'
+					);
+				} else {
+					$('.bow').attr('src',
+						'http://www.pauric.net/followthemoney/wp-content/uploads/2011/03/girl-bow.png'
+					);
+				};
+			});
+		});	  
+		// ]]>
+	</script>
+	<h3>Dear Pauric,</h3>We all wanted say congratulations on your baby and tell
+	you how much we appreciate you. I think we can all agree that the world would
+	be a better place if there were more baby Paurics in it.
+	<div id="buttons">
+		<input id="replicate" type="submit" value="replicate"> <input id=
+		"change-gender" type="submit" value="change gender">
+	</div>
+	<div class="baby" id="original-baby">
+		<div class="container"><img alt="" class="bow" src=
+		"http://www.pauric.net/followthemoney/wp-content/uploads/2011/03/boy-bow.png">
+		<img alt="baby pauric" class="alignnone size-full wp-image-236 baby-pauric"
+		height="80" src=
+		"http://www.pauric.net/followthemoney/wp-content/uploads/2011/03/pauric.jpg"
+		title="baby pauric" width="80"></div>
+	</div>
+</body>
+</html>
